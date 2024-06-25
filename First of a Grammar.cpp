@@ -6,8 +6,8 @@ int main()
     int n;
     cout << "How many Productions: ";
     cin >> n;
-    cout << "Let Epsilon: $" << endl << endl;
-    cout << "Enter " << n << " production rules (Example S ABC|ghi|$)" << endl;
+    cout << "Let Epsilon: &" << endl << endl;
+    cout << "Enter " << n << " production rules (Example S ABC|ghi|&)" << endl;
 
     vector<pair<char, string>> production(n);
     vector<pair<char, set<char>>> ans(n);
@@ -32,7 +32,7 @@ int main()
         {
             if (p)
             {
-                if ((s[j] >= 'a' && s[j] <= 'z') || s[j]=='$')
+                if (!(s[j] >= 'A' && s[j] <= 'Z') || s[j]=='&')
                 {
                     // It's a terminal
                     for (auto &pair : ans)
@@ -93,3 +93,4 @@ int main()
 
     return 0;
 }
+
